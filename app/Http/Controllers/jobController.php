@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class jobController extends Controller
+use App\Models\Job;
+class JobController extends Controller
 {
     function index()
     {
-        return view('job/index');
+        $jobs = Job::jobs();
+        return view('job/index', ['jobs' => $jobs, 'name' => 'alaa']);
     }
 }
